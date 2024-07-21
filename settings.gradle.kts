@@ -3,3 +3,7 @@ plugins {
 }
 rootProject.name = "bank-account"
 
+include("account.cmd")
+include("account.common")
+include("account.query")
+include("cqrs.core")
