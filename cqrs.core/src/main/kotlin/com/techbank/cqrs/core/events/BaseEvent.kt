@@ -1,0 +1,15 @@
+package com.techbank.cqrs.core.events
+
+import com.techbank.cqrs.core.messages.Message
+import lombok.AllArgsConstructor
+import lombok.Data
+import lombok.NoArgsConstructor
+import lombok.experimental.SuperBuilder
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+open class BaseEvent : Message() {
+    private val version: Int = 0
+}

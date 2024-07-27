@@ -8,6 +8,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/account.cmd" />
+            <option value="$PROJECT_DIR$/account.common" />
+            <option value="$PROJECT_DIR$/account.query" />
+            <option value="$PROJECT_DIR$/cqrs.core" />
           </set>
         </option>
       </GradleProjectSettings>
