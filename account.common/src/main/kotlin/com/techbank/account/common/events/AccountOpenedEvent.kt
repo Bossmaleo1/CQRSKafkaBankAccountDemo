@@ -11,9 +11,30 @@ import java.util.*
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-class AccountOpenedEvent : BaseEvent() {
-    private val accountHolder: String  = ""
-    private val accountType: String  = ""
-    private val createdDate: Date? = null
-    private val openingBalance: Double? = null
+class AccountOpenedEvent(
+      val accountHolder: String = "",
+      val accountType: String = "",
+      val createdDate: Date? = null,
+      val openingBalance: Double? = null
+) : BaseEvent() {
+      class Builder {
+            private var id: String = ""
+            private var accountHolder: String = ""
+            private var accountType: String = ""
+            private var createdDate: Date? = null
+            private var openingBalance: Double? = null
+
+            fun id(id: String) = apply { this.id = id }
+            fun accountHolder(accountHolder: String) = apply { this.accountHolder = accountHolder }
+            fun accountType(accountType: String) = apply { this.accountType = accountType }
+            fun createdDate(createdDate: Date?) = apply { this.createdDate = createdDate }
+            fun openingBalance(openingBalance: Double?) = apply { this.openingBalance = openingBalance }
+
+            fun build() = AccountOpenedEvent(accountHolder, accountType, createdDate, openingBalance)
+      }
+
+      companion object {
+            @JvmStatic
+            fun builder() = Builder()
+      }
 }

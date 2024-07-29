@@ -10,6 +10,6 @@ import lombok.experimental.SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-open class BaseEvent : Message() {
+class BaseEvent : Message() {
     private val version: Int = 0
 }

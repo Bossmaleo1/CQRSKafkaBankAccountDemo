@@ -2,22 +2,22 @@ package com.techbank.account.common.events
 
 import com.techbank.account.common.events.FundsDepositedEvent.Builder
 import com.techbank.cqrs.core.events.BaseEvent
+import lombok.Data
+import lombok.experimental.SuperBuilder
 
-class FundsWithdrawnEvent(val amount: Double = 0.0) : BaseEvent() {
-
+@Data
+@SuperBuilder
+class AccountClosedEvent : BaseEvent() {
     class Builder {
         private var id: String = ""
-        private var amount: Double = 0.0
 
         fun id(id: String) = apply { this.id = id }
-        fun amount(amount: Double) = apply { this.amount = amount }
 
-        fun build() = FundsDepositedEvent(amount)
+        fun build() = AccountClosedEvent()
     }
 
     companion object {
         @JvmStatic
-        fun builder() = com.techbank.account.common.events.FundsDepositedEvent.Builder()
+        fun builder() = Builder()
     }
-
 }

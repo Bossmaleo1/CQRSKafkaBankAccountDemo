@@ -7,4 +7,4 @@ import lombok.NoArgsConstructor
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-abstract class  Message(private val id: String = "")
+abstract class  Message(val id: String = "")

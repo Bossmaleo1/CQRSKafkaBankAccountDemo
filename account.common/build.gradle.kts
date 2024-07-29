@@ -3,6 +3,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.6"
 	kotlin("jvm") version "1.9.24"
 	kotlin("plugin.spring") version "1.9.24"
+	kotlin("plugin.allopen") version "1.9.24"
 }
 
 group = "com.techbank"
@@ -33,6 +34,17 @@ dependencies {
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation(project(":cqrs.core"))
+
+	//implementation("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+	compileOnly("org.projectlombok:lombok")
+}
+
+allOpen {
+	annotation("lombok.experimental.SuperBuilder")
+	annotation("lombok.Data")
+	annotation("lombok.NoArgsConstructor")
+	annotation("lombok.AllArgsConstructor")
 }
 
 kotlin {
@@ -43,4 +55,8 @@ kotlin {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.named<Delete>("clean") {
+	delete(layout.buildDirectory)
 }
