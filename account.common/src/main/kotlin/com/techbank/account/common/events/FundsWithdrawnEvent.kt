@@ -17,7 +17,7 @@ class FundsWithdrawnEvent(val amount: Double = 0.0) : BaseEvent() {
 
     companion object {
         @JvmStatic
-        fun builder() = com.techbank.account.common.events.FundsDepositedEvent.Builder()
+        fun builder() = FundsDepositedEvent.Builder()
     }
 
 }

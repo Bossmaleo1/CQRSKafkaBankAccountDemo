@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor
 import java.util.*
 
 @NoArgsConstructor
-class AccountAggregate(command: OpenAccountCommand) : AggregateRoot() {
+class AccountAggregate(command: OpenAccountCommand = OpenAccountCommand()) : AggregateRoot() {
     private var active: Boolean? = null
     private var balance = 0.0
 
@@ -24,6 +24,10 @@ class AccountAggregate(command: OpenAccountCommand) : AggregateRoot() {
                 .openingBalance(command.openingBalance)
                 .build()
         )
+    }
+
+    fun getBalance(): Double {
+        return balance
     }
 
     fun apply(event: AccountOpenedEvent) {

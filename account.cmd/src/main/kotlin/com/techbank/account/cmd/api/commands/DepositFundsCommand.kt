@@ -4,6 +4,6 @@ import com.techbank.cqrs.core.commands.BaseCommand
 import lombok.Data
 
 @Data
-class DepositFundsCommand : BaseCommand() {
-    private val amount: Double = 0.0
-}
+data class DepositFundsCommand(
+    var amount: Double = 0.0
+) : BaseCommand()

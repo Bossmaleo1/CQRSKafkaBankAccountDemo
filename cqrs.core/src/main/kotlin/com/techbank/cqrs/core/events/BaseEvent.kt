@@ -11,5 +11,5 @@ import lombok.experimental.SuperBuilder
 @AllArgsConstructor
 @SuperBuilder
 class BaseEvent : Message() {
-    private val version: Int = 0
+    var version: Int = 0
 }

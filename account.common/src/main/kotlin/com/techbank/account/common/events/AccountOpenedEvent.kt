@@ -17,6 +17,7 @@ class AccountOpenedEvent(
       val createdDate: Date? = null,
       val openingBalance: Double? = null
 ) : BaseEvent() {
+
       class Builder {
             private var id: String = ""
             private var accountHolder: String = ""

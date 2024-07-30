@@ -1,4 +1,4 @@
-package com.techbank.cqrs.core.domain
+package com.techbank.account.cmd.domain
 
 import com.techbank.cqrs.core.events.EventModel
 import org.springframework.data.mongodb.repository.MongoRepository

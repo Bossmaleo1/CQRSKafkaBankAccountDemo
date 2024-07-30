@@ -22,7 +22,7 @@ abstract class AggregateRoot {
         changes.clear()
     }
 
-    protected fun applyChange(event: BaseEvent, isNewEvent: Boolean) {
+    private fun applyChange(event: BaseEvent, isNewEvent: Boolean) {
         try {
             val method = javaClass.getDeclaredMethod("apply", event.javaClass)
             method.isAccessible = true

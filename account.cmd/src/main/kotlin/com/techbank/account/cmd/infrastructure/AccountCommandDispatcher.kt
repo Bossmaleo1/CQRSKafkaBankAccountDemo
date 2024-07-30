@@ -8,8 +8,10 @@ import java.util.*
 import kotlin.collections.HashMap
 
 @Service
-class AccountCommandDispatcher : CommandDispatcher {
+class AccountCommandDispatcher(
     private val routes: MutableMap<Class<out BaseCommand>, MutableList<CommandHandlerMethod<out BaseCommand>>> = HashMap()
+) : CommandDispatcher {
+
 
     override fun <T : BaseCommand> registerHandler(type: Class<T>, handler: CommandHandlerMethod<T>) {
         val handlers = routes.computeIfAbsent(type) { LinkedList() }
