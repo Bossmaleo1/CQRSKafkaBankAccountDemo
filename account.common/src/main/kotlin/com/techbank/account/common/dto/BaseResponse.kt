@@ -1,4 +1,4 @@
-package com.techbank.cqrs.core.messages
+package com.techbank.account.common.dto
 
 import lombok.AllArgsConstructor
 import lombok.Data
@@ -7,4 +7,6 @@ import lombok.NoArgsConstructor
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-abstract class  Message(var id: String = "")
+data class BaseResponse(
+    var message: String? = null,
+)
