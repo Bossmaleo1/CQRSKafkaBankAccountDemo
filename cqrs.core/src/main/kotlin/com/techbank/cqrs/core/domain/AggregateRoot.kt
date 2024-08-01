@@ -9,7 +9,6 @@ import java.util.logging.Logger
 
 abstract class AggregateRoot {
     var id: String? = null
-        protected set
     var version: Int = -1
 
     private val changes: MutableList<BaseEvent> = ArrayList()

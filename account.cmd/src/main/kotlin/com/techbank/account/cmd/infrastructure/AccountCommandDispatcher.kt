@@ -26,6 +26,7 @@ class AccountCommandDispatcher(
         if (handlers.size > 1) {
             throw RuntimeException("Cannot send command to more than one handler!")
         }
+        println("On a notre ID : ${command.id} ")
         (handlers[0] as CommandHandlerMethod<BaseCommand>).handle(command)
     }
 }

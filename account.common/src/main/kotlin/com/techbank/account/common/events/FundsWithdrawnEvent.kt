@@ -3,7 +3,7 @@ package com.techbank.account.common.events
 import com.techbank.account.common.events.FundsDepositedEvent.Builder
 import com.techbank.cqrs.core.events.BaseEvent
 
-class FundsWithdrawnEvent(val amount: Double = 0.0) : BaseEvent() {
+class FundsWithdrawnEvent(override var id: String = "",val amount: Double = 0.0) : BaseEvent(id) {
 
     class Builder {
         private var id: String = ""
@@ -12,12 +12,12 @@ class FundsWithdrawnEvent(val amount: Double = 0.0) : BaseEvent() {
         fun id(id: String) = apply { this.id = id }
         fun amount(amount: Double) = apply { this.amount = amount }
 
-        fun build() = FundsDepositedEvent(amount)
+        fun build() = FundsDepositedEvent(id, amount)
     }
 
     companion object {
         @JvmStatic
-        fun builder() = FundsDepositedEvent.Builder()
+        fun builder() = Builder()
     }
 
 }

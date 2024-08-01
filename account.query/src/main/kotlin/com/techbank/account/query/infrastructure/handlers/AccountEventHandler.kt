@@ -6,14 +6,19 @@ import com.techbank.account.common.events.FundsDepositedEvent
 import com.techbank.account.common.events.FundsWithdrawnEvent
 import com.techbank.account.query.domain.AccountRepository
 import com.techbank.account.query.domain.BankAccount
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
+
 @Service
 class AccountEventHandler(
-    @Autowired private val repository: AccountRepository,
-    private val accountRepository: AccountRepository
+     @Autowired private val accountRepository: AccountRepository
 ) : EventHandler {
+
+    companion object {
+        val LOGGER: org.slf4j.Logger? = LoggerFactory.getLogger(this::class.java)
+    }
 
     override fun on(event: AccountOpenedEvent) {
         val bankAccount = BankAccount.builder()
@@ -23,6 +28,7 @@ class AccountEventHandler(
             .accountType(event.accountType!!)
             .balance(event.openingBalance!!)
             .build()
+
         accountRepository.save(bankAccount)
     }
 

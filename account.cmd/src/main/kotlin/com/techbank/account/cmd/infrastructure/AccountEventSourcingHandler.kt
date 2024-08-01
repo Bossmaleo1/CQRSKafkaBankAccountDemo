@@ -19,12 +19,12 @@ class AccountEventSourcingHandler(
     }
 
     override fun getById(id: String): AccountAggregate? {
-        val aggregate = AccountAggregate()
+        val aggregate: AccountAggregate? = null
         val events: List<BaseEvent> = eventStore.getEvents(id)
         if (events.isNotEmpty()) {
-            aggregate.replayEvents(events)
+            aggregate!!.replayEvents(events)
             val latestVersion = events.stream().map { x -> x.version }.max(Comparator.naturalOrder())
-            aggregate.version = latestVersion.get()
+            aggregate!!.version = latestVersion.get()
         }
         return aggregate
     }

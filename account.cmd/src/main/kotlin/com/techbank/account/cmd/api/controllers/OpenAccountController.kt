@@ -18,7 +18,7 @@ import java.util.logging.Logger
 
 @RestController
 @RequestMapping(
-    path = ["api/v1/open-accounts"]
+    path = ["api/v1/openBankAccount"]
 )
 class OpenAccountController(
     @Autowired private val commandDispatcher: CommandDispatcher

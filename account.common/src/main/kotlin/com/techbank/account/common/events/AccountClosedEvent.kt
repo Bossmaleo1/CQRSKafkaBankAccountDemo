@@ -7,7 +7,7 @@ import lombok.experimental.SuperBuilder
 
 @Data
 @SuperBuilder
-class AccountClosedEvent : BaseEvent() {
+class AccountClosedEvent(override var id: String = "") : BaseEvent(id) {
     class Builder {
         private var id: String = ""
 

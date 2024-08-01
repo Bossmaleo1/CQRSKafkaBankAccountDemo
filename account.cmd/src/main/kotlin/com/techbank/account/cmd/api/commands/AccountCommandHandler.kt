@@ -23,7 +23,7 @@ class AccountCommandHandler(
 
     override fun handle(command: WithdrawFundsCommand) {
         val aggregate = eventSourcingHandler.getById(command.id)
-        if (command.amount > aggregate!!.getBalance()) {
+        if (command.amount > aggregate!!.balance) {
            throw IllegalStateException("Withdrawal declined, insufficient funds")
         }
         aggregate.withdrawFunds(command.amount)

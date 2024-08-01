@@ -10,6 +10,6 @@ import lombok.experimental.SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-class BaseEvent : Message() {
+class BaseEvent(id: String) : Message(id) {
     var version: Int = 0
 }

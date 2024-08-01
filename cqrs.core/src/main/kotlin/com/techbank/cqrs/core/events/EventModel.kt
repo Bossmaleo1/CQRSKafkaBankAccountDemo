@@ -12,13 +12,13 @@ import java.util.Date
 @Document(collection = "eventStore")
 data class EventModel (
     @Id
-    val  id: String? = "",
-    val  timestamp: Date? = null,
-    val aggregateIdentifier: String? = "",
-    val aggregateType: String? = "",
-    val version: Int? = 0,
-    val eventType: String? = "",
-    val eventData: BaseEvent? = null
+    var  id: String? = "",
+    var  timestamp: Date? = null,
+    var aggregateIdentifier: String? = "",
+    var aggregateType: String? = "",
+    var version: Int? = 0,
+    var eventType: String? = "",
+    var eventData: BaseEvent? = null
 ) {
 
     class Builder {
@@ -43,6 +43,6 @@ data class EventModel (
 
     companion object {
         @JvmStatic
-        fun builder() = EventModel.Builder()
+        fun builder() = Builder()
     }
 }

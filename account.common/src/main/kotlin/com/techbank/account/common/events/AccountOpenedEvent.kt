@@ -13,11 +13,12 @@ import java.util.*
 @AllArgsConstructor
 @SuperBuilder
 class AccountOpenedEvent(
+      override var id: String = "",
       val accountHolder: String = "",
       val accountType: AccountType? = null,
       val createdDate: Date? = null,
       val openingBalance: Double? = null
-) : BaseEvent() {
+) : BaseEvent(id) {
 
       class Builder {
             private var id: String = ""
@@ -32,7 +33,7 @@ class AccountOpenedEvent(
             fun createdDate(createdDate: Date?) = apply { this.createdDate = createdDate }
             fun openingBalance(openingBalance: Double?) = apply { this.openingBalance = openingBalance }
 
-            fun build() = AccountOpenedEvent(accountHolder, accountType, createdDate, openingBalance)
+            fun build() = AccountOpenedEvent(id,accountHolder, accountType, createdDate, openingBalance)
       }
 
       companion object {
